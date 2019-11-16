@@ -1,11 +1,27 @@
 <!DOCTYPE html>
+<link rel= "stylesheet" href= "{{ url_for('static',filename='css/main.css') }}">
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Flask Tutorial</title>
+    <title>D.O.P.E.</title>
   </head>
   <body>
-    <h1> My First Try Using Flask </h1>
+      <header>
+          <div class="container">
+              <h1 class="logo">About</h1>
+              <strong>
+                  <nav>
+                      <ul class="menu">
+                          <li><a href="/">Home</a></li>
+                          <li><a href="about">About</a></li>
+                          <li><a href="input">Input</a></li>
+                          <li><a href="charts">Charts</a></li>
+                      </ul>
+                  </nav>
+              </strong>
+          </div>
+      </header>
+    <h1> About </h1>
     <p> Flask is Fun </p>
   </body>
 </html>

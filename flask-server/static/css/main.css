@@ -1,3 +1,17 @@
+@font-face {
+    font-family: 'BebasNeue-Bold';
+    font-weight: 100;
+    font-style: normal;
+    src: url('../fonts/BebasNeue/BebasNeue-Bold.otf') format('opentype');
+}
+@font-face {
+    font-family: 'BebasNeue';
+    font-weight: 100;
+    font-style: normal;
+    src: url('../fonts/BebasNeue/BebasNeue-Regular.otf') format('opentype');
+}
+
+
 label.chk {
     display: flex;
     flex-direction: row;
@@ -32,7 +46,15 @@ input[type="checkbox"] {
 p {
     height: 20px;
     flex: 0 0 20px;
-    margin-left: 20px;
+    text-align: left;
+    margin-left: 70px;
+}
+
+img {
+    height: 300px;
+    flex: 0 0 20px;
+    text-align: left;
+    margin-left: 70px;
 }
 
 body {
@@ -45,7 +67,7 @@ body {
     * Formatting the header area
     */
     header {
-    background-color: #DFB887;
+    background-color: #3c60a3;
     height: 35px;
     width: 100%;
     opacity: .9;
@@ -54,6 +76,8 @@ body {
     header h1.logo {
     margin: 0;
     font-size: 1.7em;
+    font-family: 'BebasNeue-Bold', Fallback, sans-serif;
+    margin-left: 30px;
     color: #fff;
     text-transform: uppercase;
     float: left;
@@ -61,12 +85,13 @@ body {
     header h1.logo:hover {
     color: #fff;
     text-decoration: none;
+    text-align: left;
     }
     /*
     * Centering the body content
     */
     .container {
-    width: 800px;
+    width: 0 auto;
     margin: 0 auto;
     }
     div.home {
@@ -83,22 +108,32 @@ body {
     -moz-border-radius: 6px;
     border-radius: 6px;
     }
+    h1 {
+    font-size: 2em;
+    margin-top: 40px;
+    text-align: Left;
+    letter-spacing: 2px;
+    }
     h2 {
-    font-size: 3em;
+    font-size: 2em;
+    font-family: 'BebasNeue-Bold', Fallback, sans-serif;
     margin-top: 40px;
     text-align: center;
-    letter-spacing: -2px;
+    letter-spacing: 1px;
     }
     h3 {
     font-size: 1.7em;
+    font-family: 'BebasNeue', Fallback, sans-serif;
     font-weight: 100;
     margin-top: 30px;
-    text-align: center;
-    letter-spacing: -1px;
+    margin-left: 50px;
+    text-align: left;
+    letter-spacing: 1px;
     color: #999;
     }
     .menu {
     float: right;
+    padding-right: 500;
     margin-top: 8px;
     }
     .menu li {
@@ -108,6 +143,6 @@ body {
     margin-left: 35px;
     }
     .menu li a {
-    color: #444;
+    color:#ffffff;
     text-decoration: none;
     }
