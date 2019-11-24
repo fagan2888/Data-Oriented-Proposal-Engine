@@ -30,7 +30,7 @@ label.input {
     line-height: 26px;
     margin-bottom: 10px;
 }
-  
+
 input[type="text"] {
     height: 20px;
     flex: 0 0 200px;
@@ -49,6 +49,7 @@ p {
     text-align: left;
     margin-left: 70px;
 }
+
 
 img {
     height: 300px;
@@ -94,6 +95,7 @@ body {
     width: 0 auto;
     margin: 0 auto;
     }
+
     div.home {
     padding: 10px 0 30px 0;
     background-color: #E6E6FA;
@@ -130,6 +132,15 @@ body {
     text-align: left;
     letter-spacing: 1px;
     color: #999;
+    }
+    a:visited{
+      color:blue;
+    }
+    a.inline {
+    height: 20px;
+    flex: 0 0 20px;
+    text-align: left;
+    margin-left: 70px;
     }
     .menu {
     float: right;
