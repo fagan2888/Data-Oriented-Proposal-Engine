@@ -17,10 +17,23 @@ label.chk {
     flex-direction: row;
     justify-content: flex-end;
     text-align: left;
-    width: 230px;
+    width: 400px;
     line-height: 26px;
     margin-bottom: 10px;
+    margin-left: 100px;
 }
+
+label.submit {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: left;
+    width: 400px;
+    line-height: 26px;
+    margin-bottom: 10px;
+    margin-left: 200px;
+}
+
 label.input {
     display: flex;
     flex-direction: row;
@@ -29,9 +42,21 @@ label.input {
     width: 400px;
     line-height: 26px;
     margin-bottom: 10px;
+    margin-left: 200px;
 }
 
 input[type="text"] {
+    height: 20px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+}
+button[type="submit"] {
+    height: 20px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+}
+
+select[type="dropdown"] {
     height: 20px;
     flex: 0 0 200px;
     margin-left: 10px;
@@ -47,7 +72,7 @@ p {
     height: 20px;
     flex: 0 0 20px;
     text-align: left;
-    margin-left: 70px;
+    margin-left: 200px;
 }
 
 

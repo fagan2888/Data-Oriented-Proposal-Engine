@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <link rel= "stylesheet" href= "{{ url_for('static',filename='css/main.css') }}">
+<script src="{{url_for('static', filename='javascript/autofill.js')}}"></script>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -22,16 +23,44 @@
                 </div>
             </header>
     <h3> Enter some details below, or select autogenerate. </h3>
-    <label class="chk">Autogenerate: <input type="checkbox" name="autogen" value="y"/></label>
+    <label class="chk">Autogenerate: <input type="checkbox" name="autogen" value="y" id="autofill" onclick="calc();"/></label>
     <p>_________________________________________________________</p>
     <div>
-        <form action="/input.html">
-            <label class="input">Contract Type: <input type="text" name="contractType"/></label>
+        <form action="{{ url_for('handleData') }}" method="post">
+            <label class="input" for="port_group" class="input">Portfolio Group
+                <select id="port_group" name="port_group" type="dropdown">
+                     <option value="0">a</option>
+                     <option value="1">b</option>
+                     <option value="2">c</option>
+                </select>
+            </label>
+            <label class="input">Contract Type: <input type="text" name="contractType" id="contractType"/></label>
+            <label class="input">total_dollars_obligated<input type="text" name="contractType" id="contractType"/></label>
+            <label class="input">base_and_exercised_options_value<input type="text" name="contractType" id="contractType"/></label>
+            <label class="input">base_and_all_options_value<input type="text" name="contractType" id="contractType"/></label>
+            <label class="input">awarding_sub_agency_name<input type="text" name="contractType" id="contractType"/></label>
+            <label class="input">awarding_office_name<input type="text" name="contractType" id="contractType"/></label>
+            <label class="input">funding_sub_agency_name<input type="text" name="contractType" id="contractType"/></label>
+            <label class="input">funding_office_name<input type="text" name="contractType" id="contractType"/></label>
+            <label class="input">primary_place_of_performance_state_code<input type="text" name="contractType" id="contractType"/></label>
+            <label class="input">award_or_idv_flag<input type="text" name="contractType" id="contractType"/></label>
+            <label class="input">award_type<input type="text" name="contractType" id="contractType"/></label>
+            <label class="input">type_of_contract_pricing<input type="text" name="contractType" id="contractType"/></label>
+            <label class="input">dod_claimant_program_description<input type="text" name="contractType" id="contractType"/></label>
+            <label class="input">type_of_set_aside_code<input type="text" name="contractType" id="contractType"/></label>
+            <label class="input">contract_bundling<input type="text" name="contractType" id="contractType"/></label>
+            <label class="input">national_interest_action<input type="text" name="contractType" id="contractType"/></label>
+            <label class="input">gfe_gfp<input type="text" name="contractType" id="contractType"/></label>
+            <label class="input">contract_financing<input type="text" name="contractType" id="contractType"/></label>
+            <label class="input">portfolio_group<input type="text" name="contractType" id="contractType"/></label>
+            <label class="input">product_or_service_code_description<input type="text" name="contractType" id="contractType"/></label>
+            <label class="input">naics_bucket_title<input type="text" name="contractType" id="contractType"/></label>
+            <label class="input">naics_description<input type="text" name="contractType" id="contractType"/></label>
             <label class="input">Contract Amount: <input type="text" name="contractAmount"/></label>
             <label class="input">Contract Location: <input type="text" name="contractLoc"/></label>
             <label class="input">Contract Department: <input type="text" name="contractDept"/></label>
             <label class="input">Contract Set Aside: <input type="text" name="contractSA"/></label>
-            <label class="chk">Run<button type="checkbox"></button></label>
+            <label class="submit">Run<button type="submit"></button></label>
         </form>
     </div>
     </body>
