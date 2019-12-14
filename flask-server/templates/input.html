@@ -4,64 +4,85 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Flask Tutorial</title>
+    <title>D.O.P.E.</title>
+    <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon" />
   </head>
   <body>
         <header>
-                <div class="container">
-                    <h1 class="logo">Input</h1>
-                    <strong>
-                        <nav>
-                            <ul class="menu">
-                                <li><a href="/">Home</a></li>
-                                <li><a href="about">About</a></li>
-                                <li><a href="input">Input</a></li>
-                                <li><a href="charts">Charts</a></li>
-                            </ul>
-                        </nav>
-                    </strong>
-                </div>
-            </header>
-    <h3> Enter some details below, or select autogenerate. </h3>
-    <label class="chk">Autogenerate: <input type="checkbox" name="autogen" value="y" id="autofill" onclick="calc();"/></label>
+            <div class="container">
+                <h1 class="logo">Input</h1>
+                <strong>
+                    <nav>
+                        <ul class="menu">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="about">About</a></li>
+                            <li><a href="input">Input</a></li>
+                            <li><a href="charts">Charts</a></li>
+                        </ul>
+                    </nav>
+                </strong>
+            </div>
+        </header>
+        <div id="parentElement">
+            <span id="childElement"></span>
+        </div>
+    <h3>Run</h3>
+      <p> The result displays the ten highest value contracts matching your criteria </p>
+    <!-- <label class="chk">Autogenerate: <input type="checkbox" name="autogen" value="y" id="autofill" onclick="addElement(x);"/></label> -->
     <p>_________________________________________________________</p>
     <div>
-        <form action="{{ url_for('handleData') }}" method="post">
-            <label class="input" for="port_group" class="input">Portfolio Group
-                <select id="port_group" name="port_group" type="dropdown">
-                     <option value="0">a</option>
-                     <option value="1">b</option>
-                     <option value="2">c</option>
+        <form action="{{ url_for('input') }}" method="post">
+            <label class="input" for="set_aside">Set Aside
+                <select id="set_aside" name="set_aside" type="dropdown">
+                    <option value="None">None</option>
+                    <option value="SBA">SBA</option>
+                    <option value="8AN">8AN</option>
+                    <option value="8A">8A</option>
+                    <option value="SDVOSBC">SDVOBC</option>
+                    <option value="HZC">HZC</option>
+                    <option value="WOSB">WOSB</option>
                 </select>
             </label>
-            <label class="input">Contract Type: <input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">total_dollars_obligated<input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">base_and_exercised_options_value<input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">base_and_all_options_value<input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">awarding_sub_agency_name<input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">awarding_office_name<input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">funding_sub_agency_name<input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">funding_office_name<input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">primary_place_of_performance_state_code<input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">award_or_idv_flag<input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">award_type<input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">type_of_contract_pricing<input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">dod_claimant_program_description<input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">type_of_set_aside_code<input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">contract_bundling<input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">national_interest_action<input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">gfe_gfp<input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">contract_financing<input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">portfolio_group<input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">product_or_service_code_description<input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">naics_bucket_title<input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">naics_description<input type="text" name="contractType" id="contractType"/></label>
-            <label class="input">Contract Amount: <input type="text" name="contractAmount"/></label>
-            <label class="input">Contract Location: <input type="text" name="contractLoc"/></label>
-            <label class="input">Contract Department: <input type="text" name="contractDept"/></label>
-            <label class="input">Contract Set Aside: <input type="text" name="contractSA"/></label>
-            <label class="submit">Run<button type="submit"></button></label>
+            <label class="input" for="psc_code">PSC Code: 
+                <select id="psc_code" name="psc_code" type="dropdown">
+                    <option value="All">All</option> 
+                    {% for psc_code in psc_codes %}
+                    <option value="{{psc_code.product_or_service_code_description}}">{{psc_code.product_or_service_code_description}}</option>
+                    {% endfor %}
+                </select>
+            </label>
+
+            <label class="submit"><button type="submit">Run</button></label>
         </form>
     </div>
+      <p>Accuracy: {{AccuracyScore}}  |  Precision: {{PrecisionScore}}  |  Recall: {{RecallScore}}  |  F1: {{F1Score}}</p>
+    <table>
+        <tr>
+            <th>Contract ID</th>
+            <th>Contract Value</th>
+            <th>Awarding Sub Agency</th>
+            <th>Awarding Office</th>
+            <th>PSC Code</th>
+        </tr>
+    {% for contract in contracts %}
+        <tr>
+            <th>{{contract.contract_transaction_unique_key}}</th>
+            <th id='contract_value'>${{contract.base_and_exercised_options_value}}</th>
+            <th>{{contract.awarding_sub_agency_name}}</th>
+            <th>{{contract.awarding_office_name}}</th>
+            <th>{{contract.product_or_service_code_description}}</th>
+        </tr>
+    {% endfor %}
+      </table>
     </body>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+<script>
+    assign("{{set_aside}}","{{psc_filter}}");
+    </script>
 </html>
+

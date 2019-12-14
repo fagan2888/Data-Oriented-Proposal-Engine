@@ -11,6 +11,16 @@
     src: url('../fonts/BebasNeue/BebasNeue-Regular.otf') format('opentype');
 }
 
+table, td, th { 
+    font-size: .87em;
+    padding: 10px; 
+    border: 1px solid black;
+    border-radius: 1px;
+    text-align: center;
+    text-align: left;
+    margin-left: 50px;
+    margin-right: 50px;
+}
 
 label.chk {
     display: flex;
@@ -54,11 +64,26 @@ button[type="submit"] {
     height: 20px;
     flex: 0 0 200px;
     margin-left: 10px;
+    background-color: #FFFFFF;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+button:hover {
+  background-color: #E8E3E2; /* White */
+  color: white;
 }
 
 select[type="dropdown"] {
     height: 20px;
     flex: 0 0 200px;
+    width: 200px;
+    margin-left: 10px;
+}
+
+option {
+    height: 20px;
+    flex: 0 0 200px;
+    width: 200px;
     margin-left: 10px;
 }
 
@@ -158,6 +183,18 @@ body {
     letter-spacing: 1px;
     color: #999;
     }
+
+    h4 {
+    font-size: 1em;
+    font-family: 'BebasNeue', Fallback, sans-serif;
+    font-weight: 100;
+    margin-top: 30px;
+    margin-left: 180px;
+    text-align: left;
+    letter-spacing: 1px;
+    color: #373737;
+    }
+
     a:visited{
       color:blue;
     }
